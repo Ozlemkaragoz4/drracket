@@ -49,13 +49,13 @@ bullet_spd ----------- Mermilerin hızı
   )
 
 
-(define player (list (triangle r "outline" "white") x y 0));-------------------- Oynatıcı görüntüsü (Varsayılan olarak yukarı dönük üçgen)
+(define player (list (triangle r "outline" "black") x y 0));-------------------- Oynatıcı görüntüsü (Varsayılan olarak yukarı dönük üçgen)
 (define keys (list 0 0 0 0));--------------------------------------------------- Sırasına göre tuşların listesi (yukarıdan aşağıya, sola doğru)
 (define meteors empty);--------------------------------------------------------- Göktaşlarının listesi (görüntü x y hız dönüş yarıçapı)
 (define bullets empty);--------------------------------------------------------- Madde işaretleri listesi (x y döndürme)
 
-(define scn (rectangle scn_w scn_h "solid" "black"));--------------------------- Arka planı siyah olarak ayarlama
-(define p (circle 35 0 "white"));----------------------------------------------- Oynatıcı görüntüsü için üst daire. 
+(define scn (rectangle scn_w scn_h "solid" "pink"));--------------------------- Arka planı pembe olarak ayarlama
+(define p (circle 35 0 "red"));----------------------------------------------- Oynatıcı görüntüsü için üst daire. 
 
 
 
@@ -103,12 +103,12 @@ Ve ana sahneye koymak için tek bir görüntü elde etmek için tüm meteorları
                                       (list-ref (list-ref meteors i) 0)
                                       (list-ref (list-ref meteors i) 1)
                                       (list-ref (list-ref meteors i) 2)
-                                      (list-ref (list-ref meteors i) 3) "white")
+                                      (list-ref (list-ref meteors i) 3) "red")
                             (list-ref (list-ref meteors i) 2)
                             (list-ref (list-ref meteors i) 3)
                             (list-ref (list-ref meteors (modulo (add1 i) n)) 0)
-                            (list-ref (list-ref meteors (modulo (add1 i) n)) 1) "white")
-          (rectangle (* r 3) (* r 3) 0 "red"))
+                            (list-ref (list-ref meteors (modulo (add1 i) n)) 1) "red")
+          (rectangle (* r 3) (* r 3) 0 "pink"))
       )
     )
   )
@@ -147,7 +147,7 @@ Ve ana sahneye koymak için tek bir görüntü elde etmek için tüm meteorları
   (place-images
    (append
     (list (rotate (P 3) (place-image/align (P 0) 35 27 "center" "center" p)))
-    (list (text (number->string score) 50 "white"))
+    (list (text (number->string score) 50 "yellow"))
     draw-bullets
     )
    (append
@@ -200,7 +200,7 @@ Ve ana sahneye koymak için tek bir görüntü elde etmek için tüm meteorları
         (set! draw-bullets
               (let ((b empty))
                 (let loop ((i 0))
-                  (if (< i bullet_count) (begin (set! b (append b (list (rotate (list-ref (list-ref bullets i) 2) (rectangle 2 10 "solid" "white") )))) (loop (add1 i))) b)
+                  (if (< i bullet_count) (begin (set! b (append b (list (rotate (list-ref (list-ref bullets i) 2) (rectangle 2 10 "solid" "black") )))) (loop (add1 i))) b)
                   )
                 )
               )
