@@ -12,7 +12,7 @@
 #|
 scn_w ---------------- Ekran genişliği
 scn_h ---------------- Ekran yüksekliği
-target_rot ----------- Hedef dönüş açısı (Düzgün amaçlar için)
+target_rot ----------- Hedef dönüş açısı 
 smooth --------------- Sabitleme pürüzsüz
 rot ------------------ Akım dönme açısı
 move ----------------- 1 ise: İleri hareket, -1: Geri hareket.
